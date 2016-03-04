@@ -1,0 +1,5 @@
+$('#new_klass').modal('hide');
+<% if @save_success %>
+  $('#klasses-list').append("<%= j render(@klass) %>");
+  $('form#new-klass-form')[0].reset();
+<% end %>

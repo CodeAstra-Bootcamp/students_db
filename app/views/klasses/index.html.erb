@@ -1,0 +1,59 @@
+<div id="school-board" class="container-fluid">
+  <h1>Code Astra School</h1>
+  <div class="row">
+    <div id="klasses" class="col-md-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <a type="button" class="pull-right" data-toggle="modal" data-target="#new_klass">
+            <%= fa_icon "plus-circle" %>
+          </a>
+          <b>Classes</b>
+        </div>
+        <div id="klasses-list" class="list-group">
+          <%= render @klasses %>
+        </div>
+      </div>
+    </div>
+    <div id="Sections" class="col-md-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+    <div id="students" class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+    <div id="student" class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+</div>
+
+<%# Klass creation modal %>
+<div class="modal fade" id="new_klass" tabindex="-1" role="dialog" aria-labelledby="newKlass">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new Class</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @new_klass, remote: true, html: {id: "new-klass-form"} do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Add Class", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
