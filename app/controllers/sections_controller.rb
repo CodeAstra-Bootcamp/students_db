@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
   before_action :fetch_klass
 
   def index
-    @sections = @klass.sections
+    @sections = @klass.sections.includes(students: [:house])
   end
 
   def new

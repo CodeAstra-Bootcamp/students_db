@@ -10,7 +10,7 @@
 
 class KlassesController < ApplicationController
   def index
-    @klasses = Klass.all
+    @klasses = Klass.includes(students: [:house]).all
     @new_klass = Klass.new
   end
 
