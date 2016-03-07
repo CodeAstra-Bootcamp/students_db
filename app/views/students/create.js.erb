@@ -1,0 +1,5 @@
+$('#new_student').modal('hide');
+<% if @save_success %>
+  $('#students-list').append("<%= j render(@student) %>");
+  $('form#new-student-form')[0].reset();
+<% end %>

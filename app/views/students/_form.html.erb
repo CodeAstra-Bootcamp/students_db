@@ -1,0 +1,23 @@
+<%# Student creation modal %>
+<div class="modal fade" id="new_student" tabindex="-1" role="dialog" aria-labelledby="newStudent">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new Student</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@klass, @section, @student], remote: true, wrapper: :horizontal_form, html: {id: "new-student-form", class: "form-horizontal"} do |f| %>
+          <%= f.input :name %>
+          <%= f.input :fathers_name %>
+          <%= f.input :gender %>
+          <%= f.input :email %>
+          <%= f.input :dob, as: :date, html5: true %>
+          <%= f.input :phone %>
+          <%= f.input :address %>
+          <%= f.submit "Add Student", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

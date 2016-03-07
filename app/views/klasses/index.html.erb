@@ -26,9 +26,11 @@
     </div>
     <div id="students" class="col-md-4 hidden">
       <div class="panel panel-info">
-        <div class="panel-heading">Panel heading without title</div>
-        <div class="panel-body">
-          Panel content
+        <div class="panel-heading">
+          <%= link_to fa_icon("plus-circle"), "#", class: "pull-right", remote: true %>
+          <b>Students</b>
+        </div>
+        <div id="students-list" class="list-group">
         </div>
       </div>
     </div>
