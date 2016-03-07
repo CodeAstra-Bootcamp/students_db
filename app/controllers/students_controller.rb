@@ -21,7 +21,7 @@ class StudentsController < ApplicationController
   before_action :fetch_section
 
   def index
-    @students = @section.students
+    @students = @section.students.includes(:house)
   end
 
   def new
