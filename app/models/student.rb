@@ -16,5 +16,14 @@
 #
 
 class Student < ActiveRecord::Base
+  module Gender
+    MALE   = {code: 1, label: "Male"}
+    FEMALE = {code: 2, label: "Female"}
+
+    def self.all
+      [MALE, FEMALE].collect{|hsh| OpenStruct.new(hsh)}
+    end
+  end
+
   belongs_to :section
 end
