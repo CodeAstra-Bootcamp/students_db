@@ -13,6 +13,8 @@
 #  address      :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  house_id     :integer
+#  roll_number  :integer
 #
 
 class Student < ActiveRecord::Base
@@ -34,4 +36,5 @@ class Student < ActiveRecord::Base
   end
 
   belongs_to :section
+  belongs_to :house
 end

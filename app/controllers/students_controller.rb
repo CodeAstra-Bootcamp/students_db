@@ -13,6 +13,8 @@
 #  address      :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  house_id     :integer
+#  roll_number  :integer
 #
 
 class StudentsController < ApplicationController
@@ -51,6 +53,6 @@ private
   end
 
   def student_params
-    params.require(:student).permit(:name, :fathers_name, :gender, :email, :address, :phone, :dob)
+    params.require(:student).permit(:name, :fathers_name, :gender, :email, :address, :phone, :dob, :house_id)
   end
 end

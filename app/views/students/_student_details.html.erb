@@ -1,5 +1,6 @@
+<%= content_tag(:span, raw("&nbsp;"), class: "label label-#{student_house_label_class(student)} pull-right") %>
 <dl class="dl-horizontal">
-  <% [:name, :fathers_name, :email, :gender, :dob, :phone, :address].each do |property| %>
+  <% [:roll_number, :name, :fathers_name, :email, :gender, :dob, :phone, :address].each do |property| %>
     <dt><%= property.to_s.gsub("_", " ").capitalize %></dt>
     <dd>
       <% if property == :gender %>

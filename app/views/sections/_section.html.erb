@@ -1,6 +1,7 @@
 <%=
   link_to section.name,
           klass_section_students_path(@klass, section),
-          class: "list-group-item",
+          class: "list-group-item section_item",
+          id: dom_id(section),
           remote: true
 %>

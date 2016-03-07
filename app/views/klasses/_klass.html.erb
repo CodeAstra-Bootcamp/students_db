@@ -1,6 +1,7 @@
 <%=
   link_to klass.name,
           klass_sections_path(klass),
-          class: "list-group-item",
+          class: "list-group-item klass_item",
+          id: dom_id(klass),
           remote: true
 %>

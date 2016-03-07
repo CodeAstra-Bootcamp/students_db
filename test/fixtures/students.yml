@@ -13,6 +13,8 @@
 #  address      :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  house_id     :integer
+#  roll_number  :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
