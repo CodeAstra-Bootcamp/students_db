@@ -1,6 +1,6 @@
 <%=
   link_to student.name,
-          "",
+          klass_section_student_path(@klass, @section, student),
           class: "list-group-item",
           remote: true
 %>

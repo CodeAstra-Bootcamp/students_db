@@ -1,3 +1,5 @@
 $('#sections').removeClass('hidden');
 $('#sections-list').html('<%= j render(@sections) %>');
 $('#sections .panel-heading a').attr('href', '<%= new_klass_section_path(@klass) %>');
+$('#students').addClass('hidden');
+$('#student').addClass('hidden');
