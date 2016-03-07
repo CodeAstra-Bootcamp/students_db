@@ -1,0 +1,5 @@
+$('#new_section').modal('hide');
+<% if @save_success %>
+  $('#sections-list').append("<%= j render(@section) %>");
+  $('form#new-section-form')[0].reset();
+<% end %>

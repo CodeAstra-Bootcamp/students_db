@@ -1,9 +1,10 @@
 # == Schema Information
 #
-# Table name: klasses
+# Table name: sections
 #
 #  id         :integer          not null, primary key
 #  name       :string
+#  klass_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,6 +13,8 @@
 
 one:
   name: MyString
+  klass_id: 
 
 two:
   name: MyString
+  klass_id: 

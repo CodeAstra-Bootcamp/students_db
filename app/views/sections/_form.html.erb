@@ -1,0 +1,17 @@
+<%# Section creation modal %>
+<div class="modal fade" id="new_section" tabindex="-1" role="dialog" aria-labelledby="newSection">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new Section</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@klasses.first, @new_section], remote: true, html: {id: "new-section-form"} do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Add Section", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

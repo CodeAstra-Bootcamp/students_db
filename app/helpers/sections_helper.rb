@@ -1,17 +1,13 @@
 # == Schema Information
 #
-# Table name: klasses
+# Table name: sections
 #
 #  id         :integer          not null, primary key
 #  name       :string
+#  klass_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class KlassesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module SectionsHelper
 end
