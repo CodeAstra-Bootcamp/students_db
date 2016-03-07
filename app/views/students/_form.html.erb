@@ -15,7 +15,7 @@
           <%= f.input :dob, as: :date, html5: true %>
           <%= f.input :phone %>
           <%= f.input :address %>
-          <%= f.submit "Add Student", class: "btn btn-primary col-sm-offset-3" %>
+          <%= f.submit (@student.new_record? ? "Add Student" : "Update Details"), class: "btn btn-primary col-sm-offset-3" %>
         <% end %>
       </div>
     </div>

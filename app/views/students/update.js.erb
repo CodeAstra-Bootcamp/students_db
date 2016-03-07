@@ -1,0 +1,4 @@
+$('#new_student').modal('hide');
+<% if @save_success %>
+  $('#student .panel-body').html('<%= j render(partial: "students/student_details", locals: {student: @student}) %>');
+<% end %>

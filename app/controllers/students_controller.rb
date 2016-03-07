@@ -31,6 +31,15 @@ class StudentsController < ApplicationController
     @save_success = @student.save
   end
 
+  def edit
+    @student = @section.students.find(params[:id])
+  end
+
+  def update
+    @student = @section.students.find(params[:id])
+    @save_success = @student.update_attributes(student_params)
+  end
+
   def show
     @student = @section.students.find(params[:id])
   end
