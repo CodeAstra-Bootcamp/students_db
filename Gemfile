@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'annotate'
+gem 'faker'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -22,7 +23,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'faker'
 end
 
 group :production do
