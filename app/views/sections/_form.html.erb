@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Add a new Section</h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@klasses.first, @new_section], remote: true, html: {id: "new-section-form"} do |f| %>
+        <%= simple_form_for [@klass, @section], remote: true, html: {id: "new-section-form"} do |f| %>
           <%= f.input :name %>
           <%= f.submit "Add Section", class: "btn btn-primary" %>
         <% end %>
