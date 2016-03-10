@@ -1,0 +1,14 @@
+<%=
+  link_to("#",
+          class: "list-group-item attendant_item",
+          id: dom_id(student),
+          remote: true) do
+    content_tag(:span, class: "pull-right") do
+      fa_icon("check-square-o") +
+        fa_icon("square-o", class: "hidden")
+    end +
+      content_tag(:b, student.roll_number) +
+      " " +
+      student.name
+  end
+%>

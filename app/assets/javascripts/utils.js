@@ -1,8 +1,11 @@
 var StudentsDBUtils = {
-  hide: function(eleId) {
-    $(eleId).addClass('hidden');
+  hide: function(eleSelector) {
+    $(eleSelector).addClass('hidden');
   },
-  show: function(eleId) {
-    $(eleId).removeClass('hidden');
+  show: function(eleSelector) {
+    $(eleSelector).removeClass('hidden');
+  },
+  toggle: function(eleSelector) {
+    $(eleSelector).toggleClass('hidden');
   }
 };
