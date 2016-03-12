@@ -1,6 +1,8 @@
-$('#students').removeClass('hidden');
+StudentsDBUtils.show('#students');
 $('#students-list').html('<%= j render(@students) %>');
-$('#students .panel-heading a').attr('href', '<%= new_klass_section_student_path(@klass, @section) %>');
-$('#student').addClass('hidden');
+$('#students .panel-heading a#add-student-trigger').attr('href', '<%= new_klass_section_student_path(@klass, @section) %>');
+$('#students .panel-heading a#take-attendance-trigger').attr('href', '<%= new_klass_section_attendance_registry_path(@klass, @section) %>');
+StudentsDBUtils.hide('#student');
+StudentsDBUtils.hide('#attendance');
 $('a.section_item').removeClass('active');
 $('a#<%= dom_id(@section) %>').addClass('active');
