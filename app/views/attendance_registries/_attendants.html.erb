@@ -18,4 +18,5 @@
 
 <%= simple_form_for [@klass, @section, @new_attendance_registry], remote: true, html: {class: "hidden", id: "attendance_registry_form"} do |f| %>
   <%= f.input :absentee_ids %>
+  <%= f.submit class: "submit" %>
 <% end %>

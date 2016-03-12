@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: absentees
+#
+#  id                     :integer          not null, primary key
+#  student_id             :integer
+#  attendence_registry_id :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: 
+  attendence_registry_id: 
+
+two:
+  student: 
+  attendence_registry_id: 
