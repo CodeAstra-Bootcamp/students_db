@@ -1,13 +1,13 @@
 <% students.each do |student| %>
   <%=
     link_to("#",
-            class: "list-group-item attendant_item",
+            class: "list-group-item attendant_item #{@absent_student_ids.include?(student.id) ? 'absent' : ''}",
             id: dom_id(student),
             remote: true,
             data: {student_id: student.id}) do
       content_tag(:span, class: "pull-right") do
         fa_icon("check-square-o") +
-          fa_icon("square-o", class: "hidden")
+          fa_icon("square-o")
       end +
         content_tag(:b, student.roll_number) +
         " " +
@@ -16,7 +16,7 @@
   %>
 <% end %>
 
-<%= simple_form_for [@klass, @section, @new_attendance_registry], remote: true, html: {class: "hidden", id: "attendance_registry_form"} do |f| %>
+<%= simple_form_for [@klass, @section, @attendance_registry], remote: true, html: {class: "hidden", id: "attendance_registry_form"} do |f| %>
   <%= f.input :absent_student_ids %>
   <%= f.submit class: "submit" %>
 <% end %>

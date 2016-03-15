@@ -1,3 +1,19 @@
-// Place all the styles related to the attendance_registries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#attendants-list {
+  .attendant_item {
+    .fa-check-square-o {
+      display: inline-block;
+    }
+    .fa-square-o {
+      display: none;
+    }
+
+    &.absent {
+      .fa-check-square-o {
+        display: none;
+      }
+      .fa-square-o {
+        display: inline-block;
+      }
+    }
+  }
+}

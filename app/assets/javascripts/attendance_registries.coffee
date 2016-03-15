@@ -2,7 +2,6 @@
   init: ->
     $('.attendant_item').click (ev) ->
       ev.preventDefault()
-      StudentsDBUtils.toggle($(@).find('.fa'))
       $(@).toggleClass('absent')
       false
   submit: ->
