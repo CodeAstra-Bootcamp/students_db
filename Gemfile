@@ -12,6 +12,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'annotate'
 gem 'faker'
+gem 'twilio-ruby'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

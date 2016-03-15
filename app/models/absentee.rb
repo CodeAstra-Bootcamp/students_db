@@ -9,6 +9,8 @@
 #  updated_at             :datetime         not null
 #
 
+require 'messenger_service'
+
 class Absentee < ActiveRecord::Base
   belongs_to :attendance_registry
   belongs_to :student
@@ -18,10 +20,20 @@ class Absentee < ActiveRecord::Base
 
 private
   def send_absent_notification!
-    puts ">>>>> Send ABSENT notification SMS to #{self.student.phone}"
+    student = self.student
+    msg = ""
+    msg += "Dear Guardian, "
+    msg += "FYI, your ward, #{student.name}, has not come to the school today."
+    msg += "Regards, Code Astra Talent School"
+    MessengerService.new.send_sms("+18325326571", student.phone, msg)
   end
 
   def send_present_notification!
-    puts ">>>>> Send PRESENT notification SMS to #{self.student.phone}"    
+    student = self.student
+    msg = ""
+    msg += "Dear Guardian, "
+    msg += "FYI, your ward, #{student.name}, is at the school now."
+    msg += "Regards, Code Astra Talent School"
+    MessengerService.new.send_sms("+18325326571", student.phone, msg)
   end
 end
