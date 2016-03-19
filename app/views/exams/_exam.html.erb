@@ -1,0 +1,45 @@
+<h3>Marks</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Subject
+      </th>
+      <th>
+        Marks
+      </th>
+      <th>
+        High
+      </th>
+      <th>
+        Avg.
+      </th>
+      <th>
+        Percentile
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% [:english, :hindi, :mathematics, :science, :social].each do |property| %>
+      <tr>
+        <td>
+          <%= property.to_s.gsub("_", " ").capitalize %>
+        </td>
+        <td>
+          <%= exam.send(property) %>
+        </td>
+        <td>
+          <%= exam.high(property) %>
+        </td>
+        <td>
+          --
+        </td>
+        <td>
+          --
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<dl class="dl-horizontal">
+</dl>

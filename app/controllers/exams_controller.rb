@@ -2,6 +2,11 @@ require 'rubygems'
 require 'spreadsheet'
 
 class ExamsController < ApplicationController
+  def index
+    student = Student.find(params[:student_id])
+    @exam = student.exam
+  end
+
   def new
     @exam = Exam.new
   end

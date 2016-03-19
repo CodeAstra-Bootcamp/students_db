@@ -1,0 +1,6 @@
+$('#student_marks_link').remove();
+<% if @exam %>
+  $('#student .panel-body').append('<%= j render(@exam) %>');
+<% else %>
+  $('#student .panel-body').append('<%= j render("exams/empty") %>');
+<% end %>
