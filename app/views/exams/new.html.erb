@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Upload Marks</h1>
+  <p>
+    Please upload the pre-formatted excel sheet with the marks
+  </p>
+  <%= simple_form_for @exam do |f| %>
+    <%= f.input :file, as: :file %>
+    <%= f.submit "Upload Marks", class: "btn btn-primary" %>
+  <% end %>
+</div>
