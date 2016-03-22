@@ -14,6 +14,7 @@ gem 'annotate'
 gem 'faker'
 gem 'twilio-ruby'
 gem 'spreadsheet'
+gem 'chartkick'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

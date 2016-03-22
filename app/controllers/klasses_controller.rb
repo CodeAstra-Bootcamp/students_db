@@ -21,5 +21,16 @@ class KlassesController < ApplicationController
   end
 
   def analytics
+    @klass = Klass.find(params[:id])
+    @data = []
+    @klass.sections.each do |section|
+      data = {}
+      students_count = section.students.count
+      attendance_registries = section.attendance_registries.includes(:absentees)
+      attendance_registries.each do |ar|
+        data[ar.date] = 100*(students_count - ar.absentees.count)/students_count
+      end
+      @data.push({name: "Section: #{section.name}", data: data})
+    end
   end
 end
