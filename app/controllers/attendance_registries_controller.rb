@@ -12,7 +12,6 @@
 class AttendanceRegistriesController < ApplicationController
   before_action :fetch_section
   before_action :fetch_attendance_registry, only: [:new, :create, :update]
-  skip_before_filter :verify_authenticity_token
 
   def new
     @students = @section.students
