@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :klasses do
+    get 'analytics', on: :member
     resources :sections do
       resources :students
       resources :attendance_registries

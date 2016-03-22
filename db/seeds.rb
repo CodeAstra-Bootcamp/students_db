@@ -41,6 +41,16 @@ def seed_student(section, house, roll_no)
   print "."
 end
 
+def seed_attendance(section)
+  (0...14).each do |i|
+    date = Date.today - i.days
+    section.attendance_registries.find_or_create_by(date: date) do |attendance_registry|
+      attendance_registry.absent_student_ids = section.students.pluck(:id).sample(rand(10))
+    end
+    print "."
+  end
+end
+
 puts "# Seeding Klasses"
 (1..10).each do |num|
   seed_klass(num)
@@ -70,5 +80,11 @@ Section.all.each do |section|
     house = all_houses.sample
     seed_student(section, house, roll_no)
   end
+end
+puts "  Done."
+
+puts "# Seeding Attendance"
+Section.all.each do |section|
+  seed_attendance(section)
 end
 puts "  Done."

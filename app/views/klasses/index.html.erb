@@ -15,10 +15,20 @@
         </div>
       </div>
     </div>
+    <div id="analytics" class="col-md-10 hidden">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <b>Analytics</b>
+        </div>
+        <div id="analytics_content" class="panel-body">
+        </div>
+      </div>
+    </div>
     <div id="sections" class="col-md-2 hidden">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <%= link_to fa_icon("plus-circle"), "#", class: "pull-right", remote: true %>
+          <%= link_to fa_icon("plus-circle"), "#", class: "pull-right add", remote: true %>
+          <%= link_to fa_icon("line-chart"), "#", class: "pull-right charts", remote: true %>
           <b>Sections</b>
         </div>
         <div id="sections-list" class="list-group">

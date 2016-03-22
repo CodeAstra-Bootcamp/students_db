@@ -19,4 +19,7 @@ class KlassesController < ApplicationController
     @klass.name = params[:klass][:name]
     @save_success = @klass.save
   end
+
+  def analytics
+  end
 end
