@@ -32,16 +32,16 @@
           <%= exam.send(property) %>
         </td>
         <td>
-          <%= exam.high(property) %>
+          <%= exam.stats(property)[:high] %>
         </td>
         <td>
-          <%= exam.average(property) %>
+          <%= exam.stats(property)[:average] %>
         </td>
         <td>
-          <%= exam.percentile(property) %>
+          <%= exam.stats(property)[:percentile] %>
         </td>
         <td>
-          <%= exam.rank(property) %>
+          <%= exam.stats(property)[:rank] %>
         </td>
       </tr>
     <% end %>

@@ -10,43 +10,27 @@ class Exam < ActiveRecord::Base
     self.english + self.hindi + self.mathematics + self.science + self.social
   end
 
-  def high(subject_name)
-    self.student.section.students.collect do |st|
-      st.exam.send(subject_name)
-    end.max
-  end
+  def stats(subject_name)
+    @stats ||= {}
+    return @stats[subject_name] if @stats[subject_name]
 
-  def average(subject_name)
-    students = self.student.section.students
-    total = students.collect do |st|
-      st.exam.send(subject_name)
-    end.reduce(:+)
-    return total / students.count
-  end
+    my_score = self.send(subject_name)
 
-  def percentile(subject_name)
-    score = self.send(subject_name)
-
-    students = self.student.section.students
-    less = students.collect do |st|
+    students = self.student.section.students.includes(:exam)
+    scores = students.collect do |st|
       st.exam.send(subject_name)
-    end.count do |sc|
-      sc <= score
     end
 
-    return 100*less/students.count
-  end
-
-  def rank(subject_name)
-    score = self.send(subject_name)
-
-    students = self.student.section.students
-    less = students.collect do |st|
-      st.exam.send(subject_name)
-    end.count do |sc|
-      sc <= score
+    high = scores.max
+    average = scores.reduce(:+)/students.count
+    less = scores.count do |score|
+      score <= my_score
     end
+    percentile = 100*less/students.count
+    rank = students.count - less + 1
 
-    return students.count - less + 1
+    @stats[subject_name] = {high: high, average: average, percentile: percentile, rank: rank}
+
+    return @stats[subject_name]
   end
 end
