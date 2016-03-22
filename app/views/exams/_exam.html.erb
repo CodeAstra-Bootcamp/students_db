@@ -17,10 +17,13 @@
       <th>
         Percentile
       </th>
+      <th>
+        Rank
+      </th>
     </tr>
   </thead>
   <tbody>
-    <% [:english, :hindi, :mathematics, :science, :social].each do |property| %>
+    <% [:english, :hindi, :mathematics, :science, :social, :total].each do |property| %>
       <tr>
         <td>
           <%= property.to_s.gsub("_", " ").capitalize %>
@@ -32,10 +35,13 @@
           <%= exam.high(property) %>
         </td>
         <td>
-          --
+          <%= exam.average(property) %>
         </td>
         <td>
-          --
+          <%= exam.percentile(property) %>
+        </td>
+        <td>
+          <%= exam.rank(property) %>
         </td>
       </tr>
     <% end %>
