@@ -4,7 +4,7 @@
 #
 #  id                     :integer          not null, primary key
 #  student_id             :integer
-#  attendence_registry_id :integer
+#  attendance_registry_id :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

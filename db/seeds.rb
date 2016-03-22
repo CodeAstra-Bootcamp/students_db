@@ -51,6 +51,19 @@ def seed_attendance(section)
   end
 end
 
+def seed_exam(student)
+  unless student.exam
+    exam = student.build_exam
+    exam.english = 30 +rand(66)
+    exam.hindi = 30 +rand(66)
+    exam.mathematics = 30 +rand(66)
+    exam.science = 30 +rand(66)
+    exam.social = 30 +rand(66)
+    exam.save!
+  end
+  print "."
+end
+
 puts "# Seeding Klasses"
 (1..10).each do |num|
   seed_klass(num)
@@ -86,5 +99,11 @@ puts "  Done."
 puts "# Seeding Attendance"
 Section.all.each do |section|
   seed_attendance(section)
+end
+puts "  Done."
+
+puts "# Seeding Marks"
+Student.all.each do |student|
+  seed_exam(student)
 end
 puts "  Done."

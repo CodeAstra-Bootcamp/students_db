@@ -1,3 +1,5 @@
 <h2>Attendance Percentage</h2>
+<%= line_chart(@attendance_data, width: '80%') %>
 
-<%= line_chart(@data, width: '80%') %>
+<h2>Average Marks</h2>
+<%= column_chart(@avg_marks_data, width: '80%') %>
