@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api, defaults: {format: 'json'} do
+    resources :klasses, except: [:edit, :new]
+  end
+
   resources :klasses do
     get 'analytics', on: :member
     resources :sections do
