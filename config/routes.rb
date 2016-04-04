@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
-    resources :klasses, except: [:edit, :new]
+    namespace :v1 do
+      resources :klasses, except: [:edit, :new]
+    end
+    namespace :v2 do
+      resources :klasses, except: [:edit, :new]
+    end
+    namespace :v3 do
+      resources :klasses, except: [:edit, :new]
+    end
   end
 
   resources :klasses do
