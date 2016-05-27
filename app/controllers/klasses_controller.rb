@@ -24,7 +24,18 @@ class KlassesController < ApplicationController
     @klass = Klass.find(params[:id])
     @data = []
     @klass.sections.each do |section|
-      @data.push({name: section.pretty_name, data: {1 => rand(50), 2 => rand(50), 3 => rand(50)}})
+      data = {}
+      14.downto(0).each do |i|
+        day = Date.today - i.days
+        attendance_registry = section.attendance_registries.where(date: day).first
+        next if attendance_registry.nil?
+
+        absentees_count = attendance_registry.absentees.length
+        present_count = section.students.length - absentees_count
+        percentage_present = 100*present_count/section.students.length
+        data[day] = percentage_present
+      end
+      @data.push({name: section.pretty_name, data: data})
     end
   end
 end
