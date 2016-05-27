@@ -1,7 +1,9 @@
 StudentsDBUtils.show('#sections');
 $('#sections-list').html('<%= j render(@sections) %>');
-$('#sections .panel-heading a').attr('href', '<%= new_klass_section_path(@klass) %>');
+$('#sections .panel-heading a.add').attr('href', '<%= new_klass_section_path(@klass) %>');
+$('#sections .panel-heading a.analytics').attr('href', '<%= analytics_klass_path(@klass) %>');
 StudentsDBUtils.hide('#students');
 StudentsDBUtils.hide('#student');
+StudentsDBUtils.hide('#analytics');
 $('a.klass_item').removeClass('active');
 $('a#<%= dom_id(@klass) %>').addClass('active');

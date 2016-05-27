@@ -23,6 +23,10 @@ class Section < ActiveRecord::Base
     }
   end
 
+  def pretty_name
+    "#{self.klass.name} - #{self.name}"
+  end
+
 private
   def red_count
     students.select{|st| st.house.name == "Red"}.count

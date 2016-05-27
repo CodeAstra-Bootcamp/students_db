@@ -19,4 +19,12 @@ class KlassesController < ApplicationController
     @klass.name = params[:klass][:name]
     @save_success = @klass.save
   end
+
+  def analytics
+    @klass = Klass.find(params[:id])
+    @data = []
+    @klass.sections.each do |section|
+      @data.push({name: section.pretty_name, data: {1 => rand(50), 2 => rand(50), 3 => rand(50)}})
+    end
+  end
 end

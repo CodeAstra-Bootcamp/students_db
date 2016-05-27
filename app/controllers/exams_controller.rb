@@ -13,7 +13,7 @@ class ExamsController < ApplicationController
   def create
     begin
       file = params[:exam][:file]
-      rows = SpreadsheetParser.new(file.tempfile)
+      rows = SpreadsheetParser.new(file.tempfile).rows
       Exam.upload(rows)
       flash[:success] = "Marks updated successfully"
     rescue

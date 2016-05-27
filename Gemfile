@@ -14,6 +14,7 @@ gem 'annotate'
 gem 'faker'
 gem 'twilio-ruby'
 gem 'spreadsheet'
+gem 'chartkick'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -26,6 +27,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'thin'
+  gem 'erd'
 end
 
 group :production do

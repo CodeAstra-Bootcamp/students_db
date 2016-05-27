@@ -11,15 +11,15 @@ class Exam < ActiveRecord::Base
       data = rows[i].to_a
       student = section.students.find_by(roll_number: data[0].to_i)
       exam = student.exam || student.create_exam
-      # exam.english     = data[2].to_i
-      # exam.hindi       = data[3].to_i
-      # exam.mathematics = data[4].to_i
-      # exam.science     = data[5].to_i
-      # exam.social      = data[6].to_i
-      subjects = [:english, :hindi, :mathematics, :science, :social]
-      (0...subjects.length).each do |i|
-        exam.send(subjects[i], data[i+2].to_i)
-      end
+      exam.english     = data[2].to_i
+      exam.hindi       = data[3].to_i
+      exam.mathematics = data[4].to_i
+      exam.science     = data[5].to_i
+      exam.social      = data[6].to_i
+      # subjects = [:english, :hindi, :mathematics, :science, :social]
+      # (0...subjects.length).each do |i|
+      #   exam.send(subjects[i], data[i+2].to_i)
+      # end
       exam.save!
     end
   end
