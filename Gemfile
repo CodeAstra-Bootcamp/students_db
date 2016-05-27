@@ -28,6 +28,7 @@ group :development do
   gem 'spring'
   gem 'thin'
   gem 'erd'
+  gem 'meta_request'
 end
 
 group :production do

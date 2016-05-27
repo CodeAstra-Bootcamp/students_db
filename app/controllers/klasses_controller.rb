@@ -21,19 +21,20 @@ class KlassesController < ApplicationController
   end
 
   def analytics
-    @klass = Klass.find(params[:id])
-    @data = []
-    @klass.sections.each do |section|
-      data = {}
-      14.downto(0).each do |i|
-        day = Date.today - i.days
-        attendance_registry = section.attendance_registries.where(date: day).first
-        next if attendance_registry.nil?
+    klass = Klass.find(params[:id])
+    sections = klass.sections
+    students = Student.where(section_id: sections.pluck(:id)).group_by(&:section_id)
+    attendance_registries = AttendanceRegistry.where('date >= ?', Date.today - 14.days).where(section_id: sections.pluck(:id))
+    grouped_attendance_registries = attendance_registries.group_by(&:section_id)
+    absentees = Absentee.where(attendance_registry_id: attendance_registries.pluck(:id)).group_by(&:attendance_registry_id)
 
-        absentees_count = attendance_registry.absentees.length
-        present_count = section.students.length - absentees_count
-        percentage_present = 100*present_count/section.students.length
-        data[day] = percentage_present
+    @data = []
+    sections.each do |section|
+      data = {}
+      students_count = students[section.id].length
+      grouped_attendance_registries[section.id].each do |ar|
+        absentees_count = (absentees[ar.id] || []).length
+        data[ar.date] = 100*(students_count - absentees_count)/students_count
       end
       @data.push({name: section.pretty_name, data: data})
     end
