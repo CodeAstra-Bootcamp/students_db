@@ -57,6 +57,51 @@ class KlassesController < ApplicationController
         avg_scores[subject.to_s.capitalize] = total / students_count
       end
       @marks_data.push({name: section.pretty_name, data: avg_scores})
+    end 
+
+    #For Percentile distribution
+    @percentile_data = Hash.new(Array.new);
+    # Calculate the percentage of all student marks
+    students = klass.students.includes(:exam)
+    percentage_arr = [];
+    students.each do |student|
+      total_marks = student.exam.total
+      percentage = total_marks/5.0  # Subject count to be got dynamically
+      # push this into an array
+      percentage_arr.push(percentage);
     end
+
+    # Now from the percentage array, get the percentiles
+    # 
+    students_count = students.count
+    grades_hash = Hash.new(0);
+    percentage_arr.each do |current_percent|
+      students_less_than_current_percent = percentage_arr.count{|percent| percent<=current_percent}
+      percentile = 100.0*students_less_than_current_percent/students_count
+      grade = get_grade(percentile)
+      grades_hash[grade]+=1
+      @percentile_data[grade] = grades_hash[grade]; 
+    end
+
   end
+
+private
+def get_grade(percentile)
+  if (percentile >= 90)
+    return "S"
+  elsif (percentile >= 80 and percentile < 90)
+    return "A"
+  elsif (percentile >= 70 and percentile < 80)
+    return "B"
+  elsif (percentile >= 60 and percentile < 70)
+    return "C"
+  elsif (percentile >= 50 and percentile < 60)
+    return "D"
+  elsif (percentile >= 40 and percentile < 50)
+    return "E"
+  else 
+    return "F"  
+  end                  
+end
+
 end
